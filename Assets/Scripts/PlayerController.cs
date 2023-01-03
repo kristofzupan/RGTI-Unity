@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [Range(0, 1000)]
-    public float torque = 5.0f;
+    public float torque = 5000.0f;
     // Start is called before the first frame update
     void Start()
     {
