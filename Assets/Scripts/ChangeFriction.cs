@@ -18,7 +18,7 @@ public class ChangeFriction : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            rb.drag = 20;
+            rb.drag = 1;
         }
 
     }
