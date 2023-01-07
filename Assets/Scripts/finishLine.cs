@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class finishLine : MonoBehaviour
 {
+    //[SerializeField] GameOverManager gameOverManager;
+
     void OnTriggerEnter(Collider other)
     {
         if(Globals.checkpoint1 && Globals.checkpoint2 && Globals.checkpoint3)
         {
+
             Debug.Log("finish");
+            //gameOverManager.SetGameOver();
         }
     }
 
