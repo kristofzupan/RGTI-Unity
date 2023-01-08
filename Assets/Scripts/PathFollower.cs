@@ -27,7 +27,7 @@ namespace PathCreation.Examples
 
             if (Globals.dificulty == 3)
             {
-                speed += 3;
+                speed += 2;
             }
 
             if (pathCreator != null)

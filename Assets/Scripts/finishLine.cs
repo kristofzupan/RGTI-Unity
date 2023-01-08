@@ -30,7 +30,7 @@ public class finishLine : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if(Globals.checkpoint1 && Globals.checkpoint2 && Globals.checkpoint3)
+            if(Globals.checkpoint1 && Globals.checkpoint2 && Globals.checkpoint3) 
             {
                 PlayerTime = Time.time;
                 Debug.Log(PlayerTime + " ---- " + GhostTime);

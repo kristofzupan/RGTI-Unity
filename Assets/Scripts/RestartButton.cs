@@ -19,6 +19,18 @@ public class RestartButton : MonoBehaviour
 
     public void RestartGame() {
         Time.timeScale = 1.0f;
+        Globals.checkpoint1 = false;
+        Globals.checkpoint2 = false;
+        Globals.checkpoint3 = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Back()
+    {
+        Time.timeScale = 1.0f;
+        Globals.checkpoint1 = false;
+        Globals.checkpoint2 = false;
+        Globals.checkpoint3 = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
