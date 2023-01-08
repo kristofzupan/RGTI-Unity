@@ -9,22 +9,24 @@ public class finishLine : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] Text timer;
     [SerializeField] TextMeshProUGUI finalScore;
+    [SerializeField] TextMeshProUGUI titleScore;
+    [SerializeField] TextMeshProUGUI retryButtonText;
     [SerializeField] Text result;
 
     private float GhostTime;
     private float PlayerTime;
-
+    private int ghostFinishIter;
 
     void Start()
     {
         gameOverScreen.SetActive(false);
-        GhostTime = 0.0f;
-        PlayerTime = 0.0f;
+        GhostTime = float.MaxValue;
+        PlayerTime = float.MaxValue;
+        ghostFinishIter = -1;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
         if (other.tag == "Player")
         {
             if(Globals.checkpoint1 && Globals.checkpoint2 && Globals.checkpoint3)
@@ -36,6 +38,8 @@ public class finishLine : MonoBehaviour
                 } else
                 {
                     result.text = "You won! Congratulations!";
+                    titleScore.text = "FINISH";
+                    retryButtonText.text = "Play again";
                 }
                 Time.timeScale = 0.0f;
                 gameOverScreen.SetActive(true);
@@ -45,13 +49,13 @@ public class finishLine : MonoBehaviour
                 Globals.checkpoint2 = false;
                 Globals.checkpoint3 = false;
             }
-        } else if (other.tag != "Ghost")
+        } else if (other.tag == "Ghost")
         {
-            Debug.Log("Ghost enter");
-            GhostTime = Time.time;
+            ghostFinishIter++;
+            if (ghostFinishIter > 0)
+            {
+                GhostTime = Time.time;
+            }
         }
-
-        
     }
-
 }
