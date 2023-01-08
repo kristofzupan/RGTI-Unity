@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameOverScreen.SetActive(false);
+        //gameOverScreen.SetActive(false);
         
     }
 
@@ -26,8 +26,8 @@ public class GameOverManager : MonoBehaviour
 
     public void SetGameOver()
     {
-        gameOverScreen.SetActive(true);
-        finalScore.text = timer.text;
+        //gameOverScreen.SetActive(true);
+        //finalScore.text = timer.text;
 
         /*timer.setActive(false);
         restart.setActive(false);
