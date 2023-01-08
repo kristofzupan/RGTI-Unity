@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class StartButton : MonoBehaviour
 {
     [SerializeField] GameObject difficultyMenu;
+    [SerializeField] GameObject instructionsMenu;
 
     void Start()
     {
         difficultyMenu.SetActive(false);
+        instructionsMenu.SetActive(false);
     }
 
     public void PlayGame ()
@@ -39,5 +41,15 @@ public class StartButton : MonoBehaviour
     {
         Globals.dificulty = 3;
         difficultyMenu.SetActive(false);
+    }
+
+    public void Instructions()
+    {
+        instructionsMenu.SetActive(true);
+    }
+
+    public void ExitInstructions()
+    {
+        instructionsMenu.SetActive(false);
     }
 }
