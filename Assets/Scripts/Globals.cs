@@ -7,4 +7,6 @@ public static class Globals
     public static bool checkpoint1 = false;
     public static bool checkpoint2 = false;
     public static bool checkpoint3 = false;
+
+    public static int dificulty = 1;
 }

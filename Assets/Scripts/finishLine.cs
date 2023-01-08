@@ -23,6 +23,7 @@ public class finishLine : MonoBehaviour
         GhostTime = float.MaxValue;
         PlayerTime = float.MaxValue;
         ghostFinishIter = -1;
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,6 +33,7 @@ public class finishLine : MonoBehaviour
             if(Globals.checkpoint1 && Globals.checkpoint2 && Globals.checkpoint3)
             {
                 PlayerTime = Time.time;
+                Debug.Log(PlayerTime + " ---- " + GhostTime);
                 if (PlayerTime > GhostTime)
                 {
                     result.text = "You lost, the ghost finnished the race before you!";
@@ -51,9 +53,11 @@ public class finishLine : MonoBehaviour
             }
         } else if (other.tag == "Ghost")
         {
+            Debug.Log("Ghost finish");
             ghostFinishIter++;
             if (ghostFinishIter > 0)
             {
+                Debug.Log("Ghost finish: " + ghostFinishIter);
                 GhostTime = Time.time;
             }
         }

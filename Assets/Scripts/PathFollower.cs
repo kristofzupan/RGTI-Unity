@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace PathCreation.Examples
 {
@@ -13,6 +14,22 @@ namespace PathCreation.Examples
         private Quaternion offset;
 
         void Start() {
+
+            if (Globals.dificulty == 1)
+            {
+                speed += 0;
+            }
+
+            if (Globals.dificulty == 2)
+            {
+                speed += 1;
+            }
+
+            if (Globals.dificulty == 3)
+            {
+                speed += 3;
+            }
+
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
