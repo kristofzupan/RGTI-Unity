@@ -24,6 +24,33 @@ public class Timer : MonoBehaviour
         }
         TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
 
-        timerText.text = t.Minutes.ToString() + ":" + t.Seconds.ToString() + ":" + t.Milliseconds.ToString();
+        string minutes = "";
+        string seconds = "";
+        string milisec = "";
+        if (t.Minutes < 10)
+        {
+            minutes = "0" + t.Minutes.ToString();
+        } else
+        {
+            minutes = t.Minutes.ToString();
+        }
+
+        if (t.Seconds < 10)
+        {
+            seconds = "0" + t.Seconds.ToString();
+        } else
+        {
+            seconds = t.Seconds.ToString();
+        }
+
+        if (t.Milliseconds < 100)
+        {
+            milisec = "0" + t.Milliseconds.ToString();
+        } else
+        {
+            milisec = t.Milliseconds.ToString();
+        }
+
+        timerText.text = minutes+ ":" + seconds + ":" + milisec;
     }
 }
