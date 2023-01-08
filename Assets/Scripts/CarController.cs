@@ -26,6 +26,10 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Globals.countDown)
+        {
+            return;
+        }
         GetInput();
         HandleMotor();
         HandleSteering();

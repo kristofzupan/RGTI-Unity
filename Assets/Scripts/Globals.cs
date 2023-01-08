@@ -9,4 +9,6 @@ public static class Globals
     public static bool checkpoint3 = false;
 
     public static int dificulty = 1;
+
+    public static bool countDown = true;
 }

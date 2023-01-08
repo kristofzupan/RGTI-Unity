@@ -36,10 +36,22 @@ namespace PathCreation.Examples
                 pathCreator.pathUpdated += OnPathChanged;
             }
             offset = transform.rotation;
+
+            if (pathCreator != null)
+            {
+                distanceTravelled += speed * Time.deltaTime;
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction) * offset;
+            }
         }
 
         void Update()
         {
+            if (Globals.countDown)
+            {
+                return;
+            }
+
             if (pathCreator != null)
             {
                 distanceTravelled += speed * Time.deltaTime;

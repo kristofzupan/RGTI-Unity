@@ -18,6 +18,7 @@ public class RestartButton : MonoBehaviour
     }
 
     public void RestartGame() {
+        Globals.countDown = true;
         Time.timeScale = 1.0f;
         Globals.checkpoint1 = false;
         Globals.checkpoint2 = false;
@@ -27,6 +28,7 @@ public class RestartButton : MonoBehaviour
 
     public void Back()
     {
+        Globals.countDown = true;
         Time.timeScale = 1.0f;
         Globals.checkpoint1 = false;
         Globals.checkpoint2 = false;

@@ -17,6 +17,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Globals.countDown)
+        {
+            startTime = Time.time;
+            return;
+        }
         TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
 
         timerText.text = t.Minutes.ToString() + ":" + t.Seconds.ToString() + ":" + t.Milliseconds.ToString();
