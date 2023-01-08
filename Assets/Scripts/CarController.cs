@@ -23,6 +23,22 @@ public class CarController : MonoBehaviour
     public float motorForce = 50f;
     public float brakeForce = 0f;
 
+    public Vector3 spawnPoint;
+    public Quaternion spawnPointRotation;
+
+    void Start()
+    {
+        spawnPoint = transform.position;
+        spawnPointRotation = transform.rotation;
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown("r")) 
+        {
+            Respawn();
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -34,6 +50,7 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+
     }
 
     private void GetInput()
@@ -79,4 +96,19 @@ public class CarController : MonoBehaviour
         trans.position = pos;
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Checkpoint")
+        {
+            spawnPoint = transform.position;
+            spawnPointRotation = transform.rotation;
+        }
+    }
+
+    public void Respawn()
+    {
+        transform.position = spawnPoint;
+        transform.rotation = spawnPointRotation;
+        brakeForce = 3000f;
+    }
 }
